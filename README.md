@@ -31,51 +31,56 @@ User.json - user_id, user_count, reviews.
 1. Which are the best restaurants available in the proximity?
 Proxy Tasks: 
 What is “Best” signifying in this task? ”Best” can be defined more specifically in terms of cost or based on ratings by the customers. 
-Proxy Value: This can be calculated using the business.json file and in that, we will be using stars and review_count.
+Proxy Value: 
+This can be calculated using the business.json file and in that, we will be using stars and review_count.
 How is “Proximity” defined for suggesting the restaurants? “Proximity” is a broad term which needs to be narrowed down based on the boroughs, City, Area, Streets, and Avenues.
-Proxy Values: This can be calculated using the business.json file and in that, we will be 
+Proxy Values: 
+This can be calculated using the business.json file and in that, we will be 
 using longitude, latitude, and postal code.
 
 
 2. Which are the top 5-star rating restaurants in the area? 
 Proxy Tasks: 
 What is the significance of “top”? Listing the restaurant with the most number of 5 stars because there may be restaurants with a single user review but a 5-star rating.
-Proxy Values: We will be using the Review.json file, in this, we will be using stars, and in the business.json file, we will use stars and review_count.
+Proxy Values: 
+We will be using the Review.json file, in this, we will be using stars, and in the business.json file, we will use stars and review_count.
 
 
 3. How many different cuisines does the person have as an option to eat nearby?
 Proxy Tasks:
 Based on the current location, there may be many different types of cuisines which the person can have as options to eat. They can select the nearest one and eat there.
-Proxy Values: business.json file provide us with the categories which will help us to determine the different cuisines and then the latitude, longitude, and postal code will provide the location of the restaurant.
+Proxy Values: 
+business.json file provide us with the categories which will help us to determine the different cuisines and then the latitude, longitude, and postal code will provide the location of the restaurant.
 
 
 4. Which restaurants open early in the morning?
-	Proxy Task:
+Proxy Task: 
 Early is not defined here, early is a relative term and depends on person to person, since it can 9:00 am also, it can be 7:00 am also. So we need to properly define the term early.
-Proxy Value: It can be defined by using the checkin.json file, where the timing of the restaurant is defined and that will help us to classify the restaurants opening up in the morning at the earliest.
+Proxy Value: 
+It can be defined by using the checkin.json file, where the timing of the restaurant is defined and that will help us to classify the restaurants opening up in the morning at the earliest.
 
 
 5. Which good restaurants have outdoor seating facility?
-	Proxy Task:
+Proxy Task: 
 “Good” means that the restaurant which have rating 4 and above.
-Proxy Value: Stars attribute in the reviews.json file will help us filter if the restaurant is good or not based on if its rating is less than or greater than 4.
+Proxy Value: 
+Stars attribute in the reviews.json file will help us filter if the restaurant is good or not based on if its rating is less than or greater than 4.
 Outdoor Seating facility allows the restaurant to let the customers sit outside.
-Proxy Value: There is an attribute outdoor_seating from Business.json which explicitly says if there is outdoor seating facility by the restaurant.
-Story Design
-Data Analysis
+Proxy Value: 
+There is an attribute outdoor_seating from Business.json which explicitly says if there is outdoor seating facility by the restaurant.
+
+## Story Design
+## Data Analysis
 The answer to the above-mentioned questions are the following:
 
 1. This is the overall map showing all the restaurants based on the latitude and longitude plotted on the map. This map shows the number of restaurants when the map is focussed on a particular region.
 
-
 2.The above map shows the top 10 restaurants based on their number of review counts. 
-
-
-
 
 3. The above is a treemap, which represents the categories of food items based on the count of star ratings.
 
 4. The above graph shows the restaurants which open in the morning by 9:00 am
+
 5. The above graph shows the restaurants which have outdoor sitting or not. If they have outdoor sitting then it is represented by +1, if they don’t have outdoor sitting then it is represented by -1.
 
 ## Storyboard

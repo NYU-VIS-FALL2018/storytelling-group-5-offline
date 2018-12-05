@@ -92,9 +92,10 @@ With this web application, we will be taking step by step approach towards helpi
 
 1. We have made the graph where we use the longitude and latitude to plot the restaurants on the map. We are using the size of the circles to show the rating of the restaurant where if the restaurant has a bigger circle then it has a higher rating and the restaurant with a smaller circle has a lower rating.We are plotting the restaurants on the map using the longitude and latitude.
 2. Map with Circles showing the location of restaurant
-![whatsapp image 2018-12-05 at 4 14 24 pm 1](https://user-images.githubusercontent.com/32939619/49546010-45dde200-f8ad-11e8-93ee-a151f49ed688.jpeg)
-3. After the graph is made, we will add the treemap, which will show the various cuisines present in our dataset. Size of each cuisines depend on the star rating present corresponding to the restaurants. After this, when we hover over the each restaurant marker, we will be able to see number of reviews vs stars bar chart.
 ![whatsapp image 2018-12-05 at 4 14 24 pm](https://user-images.githubusercontent.com/32939619/49546011-45dde200-f8ad-11e8-88e3-bed24684b1fe.jpeg)
+
+3. After the graph is made, we will add the treemap, which will show the various cuisines present in our dataset. Size of each cuisines depend on the star rating present corresponding to the restaurants. After this, when we hover over the each restaurant marker, we will be able to see number of reviews vs stars bar chart.
+![whatsapp image 2018-12-05 at 4 14 24 pm 1](https://user-images.githubusercontent.com/32939619/49546010-45dde200-f8ad-11e8-93ee-a151f49ed688.jpeg)
 4. We will also be able to see a heat map which shows the number of checkins made for each timing in the whole day, which would help us answer the most busy period for the restaurants.
 5. Our final solution will look something like this and will be interactive for users to show the results.
 

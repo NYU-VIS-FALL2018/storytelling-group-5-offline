@@ -1,101 +1,49 @@
-## Restaurant Analyzer and Recommender
+Final Project - Yelp Dataset Visualization  
+===
 
-## Project goal
-Our project goal is to analyze Yelp data and visualize the data using map views and other graphs to answer various questions to determine the best restaurant in the proximity with a type of cuisine which the user wants to eat. Users can locate their location and choose the type of cuisine they want and filter them based on their ratings. This will help them eat their favorite cuisine in the proximity at a place which has good ratings and reviews in the comments. We have tried to make this an interactive webpage for the user so that they can add filters and choose a place to eat with best of their needs.
+[Project Link]( https://stels07.github.io/DataVisFinal/)
 
-## Main objectives:
+###team
+Hongzhang Cheng (hcheng3)
+Yihao Zhou (iihaw)
+Shi Wang (stels07)
 
-Show correlation between ratings, location, cuisine types.
-Provide a high-level view of restaurants for the user to see the best option for them. 
-Show interactive relation between cuisines, location, and restaurant ratings.
-A user will be able to see the most rated restaurant in the location on basis of map zoom in and zoom out.
+-
+In this project, we visualized restaurants data in Montreal. We want to provide a better user experience for selecting restaurants.
 
-## Data Set
+### map functions
 
-URL for the DataSet: https://www.yelp.com/dataset/challenge
+![map](img/map.png)
+We first put all restaurants data on map of montreal. The color of the circles is mapped to average rating of the restaurant. User is able to drag and zoom the map. The treemap and histogram on the bottom will be updated on map reset, and they are coordinated with the number of restaurants within the screen. We add this feature because location is often an important factor when picking restaurants. People are interested to know what is around. 
 
-Dataset files used:
-Business.json
-Review.json 
-Checkin.json
-user.json
+### treemap
+![map](img/treemap_1.png)
+![map](img/treemap_2.png)
+The bottom panel offers the filter functions. We use a treemap to filter category. The size of the treemap leaves are mapped to the number of restaurants that have this category label. The benefit of this design is that it is a filter but at the same time, user is able to have a bigger picture of the distribution of the businesses. Click an element in the treemap will filter restaurants on the map, and the histogram will update accordingly. User will also see a suggestion board, which lists the most popular restaurants within the filtered data. The suggestion board gives developer an opportunity to apply recommendation algorithms. For example, we can suggest newly opened restaurants with high ratings but fewer reviews.
 
-Attributes used from the data set are :
-Business.json - business_id, name, city, address, postal code, longitude, latitude, stars, review_count, category, outDoorSitting
-Review.json - review_id, business_id, stars 
-Checkin.json - business_id, time.
-User.json - user_id, user_count, reviews.
+### price and rating filters
+The price and star rating filter coordinate with the treemap, histogram and map. When we interact with these two filters, the size of the green rectangles and the circles on the map will change accordingly, so does the histogram. The multiple choice price button works similarly.The green rectangles in the treemap means restaurants satisfy the filter and the grey rectangles are the ones that do not. With the help of these two filter and treemap, we could know the price and star distribution of the restaurants in one category which could give user a general information of restaurants in this area.There are 3 filters here, category, price and average rating. We design it in a way that either one can be the primary filter. 
 
-## Analytical Questions and Proxy Tasks
-	
-1. Which are the best restaurants available in the proximity?
-Proxy Tasks: 
-What is “Best” signifying in this task? ”Best” can be defined more specifically in terms of cost or based on ratings by the customers. 
-Proxy Value: 
-This can be calculated using the business.json file and in that, we will be using stars and review_count.
-How is “Proximity” defined for suggesting the restaurants? “Proximity” is a broad term which needs to be narrowed down based on the boroughs, City, Area, Streets, and Avenues.
-Proxy Values: 
-This can be calculated using the business.json file and in that, we will be 
-using longitude, latitude, and postal code.
+###historgram
+![map](img/histogram.png)
+The histogram on the bottom left shows a distribution of number of restaurants over number of reviews. Number of reviews of a certain restaurant is a strong indicator of how average rating reflects the reality. The histogram also acts as a 4th filter. Clicking on a bar will select restaurants that have larger number of reviews than a certain number, and the map will be updated
 
+###business info
+![map](img/business_info.png)
+![map](img/business_info_1.png)
+When you click on a restaurant in the map, it will bring up a panel from the right side of the screen showing the detail information about this restaurant, including name, rating stars, price range, address, and categories. This is the checkin heatmap.  It shows the number of checkins in a week. Each rectangle represents number of checkins in a hour. We can see what time in a day and what day in a week this restaurant is busy so we can maybe avoid the peak hour. We implemented a rating distribution barchart. It shows the percentage of reviews in each rating level. When you click on the bar it will bring up a second panel listing all the reviews in this rating. When finish reading, you can simply click on the review panel to hide the review. Or you can click on the map to hide both review and detail info panel.
 
-2. Which are the top 5-star rating restaurants in the area? 
-Proxy Tasks: 
-What is the significance of “top”? Listing the restaurant with the most number of 5 stars because there may be restaurants with a single user review but a 5-star rating.
-Proxy Values: 
-We will be using the Review.json file, in this, we will be using stars, and in the business.json file, we will use stars and review_count.
+###final design
+![map](img/finaldesign.png)
+This is our final design and all the interaction part were described in the previous sections.
 
+###references
+https://bost.ocks.org/mike/leaflet/
 
-3. How many different cuisines does the person have as an option to eat nearby?
-Proxy Tasks:
-Based on the current location, there may be many different types of cuisines which the person can have as options to eat. They can select the nearest one and eat there.
-Proxy Values: 
-business.json file provide us with the categories which will help us to determine the different cuisines and then the latitude, longitude, and postal code will provide the location of the restaurant.
+http://flowingdata.com/2014/07/02/jobs-charted-by-state-and-salary/
+
+http://bl.ocks.org/dukevis/6768900
 
 
-4. Which restaurants open early in the morning?
-Proxy Task: 
-Early is not defined here, early is a relative term and depends on person to person, since it can 9:00 am also, it can be 7:00 am also. So we need to properly define the term early.
-Proxy Value: 
-It can be defined by using the checkin.json file, where the timing of the restaurant is defined and that will help us to classify the restaurants opening up in the morning at the earliest.
 
-
-5. Which good restaurants have outdoor seating facility?
-Proxy Task: 
-“Good” means that the restaurant which have rating 4 and above.
-Proxy Value: 
-Stars attribute in the reviews.json file will help us filter if the restaurant is good or not based on if its rating is less than or greater than 4.
-Outdoor Seating facility allows the restaurant to let the customers sit outside.
-Proxy Value: 
-There is an attribute outdoor_seating from Business.json which explicitly says if there is outdoor seating facility by the restaurant.
-
-## Story Design
-## Data Analysis
-The answer to the above-mentioned questions are the following:
-
-1. This is the overall map showing all the restaurants based on the latitude and longitude plotted on the map. This map shows the number of restaurants when the map is focussed on a particular region.
-
-2.The above map shows the top 10 restaurants based on their number of review counts. 
-
-3. The above is a treemap, which represents the categories of food items based on the count of star ratings.
-
-4. The above graph shows the restaurants which open in the morning by 9:00 am
-
-5. The above graph shows the restaurants which have outdoor sitting or not. If they have outdoor sitting then it is represented by +1, if they don’t have outdoor sitting then it is represented by -1.
-
-## Storyboard
-There have been many mobile applications which help users in finding the restaurants of their choice, but there aren’t in web applications. Web applications which we are creating will provide a much clear approach and will allow the user to filter appropriately and show the results on the map, thus the user will have a better user experience. Now, the question comes is that the mobile application is more useful to the user, but the screen size restricts the user from doing all the visualization and applies all the filters at once, hence the web application will be more powerful for the visualization purpose. The user along with filtering is able to simultaneously look the result on the map and if the user is not able to get some good results, he can just drag the slider to change the filter value and then get the desired results. Based on our experience, we decided that few key factors are very important while designing our story, like the average rating of the business, the location, price, number of ratings of the user, stars, review counts. These key factor will help us in better designing our story and also help in a better user experience. 
-
-With this web application, we will be taking step by step approach towards helping the user in finding the desired restaurant. The first step taken would be to provide the user with the number of restaurants within the proximity of the user. Now the user can also have the restaurants with the filter of the borough or even the zip code. This can be visualized on the basis of latitude and longitude in the dataset. The next step which comes is to filter the restaurants on the basis of the desired cuisine. From the dataset, we can get which all cuisines are served by the restaurant and then filter accordingly. Once these are filters, now the user can filter the restaurants on the basis of their star rating, since each restaurant has the star count in the dataset and the user review counts. 
-
-## Steps:
-
-1. We have made the graph where we use the longitude and latitude to plot the restaurants on the map. We are using the size of the circles to show the rating of the restaurant where if the restaurant has a bigger circle then it has a higher rating and the restaurant with a smaller circle has a lower rating.We are plotting the restaurants on the map using the longitude and latitude.
-2. Map with Circles showing the location of restaurant
-![whatsapp image 2018-12-05 at 4 14 24 pm](https://user-images.githubusercontent.com/32939619/49546011-45dde200-f8ad-11e8-88e3-bed24684b1fe.jpeg)
-
-3. After the graph is made, we will add the treemap, which will show the various cuisines present in our dataset. Size of each cuisines depend on the star rating present corresponding to the restaurants. After this, when we hover over the each restaurant marker, we will be able to see number of reviews vs stars bar chart.
-![whatsapp image 2018-12-05 at 4 14 24 pm 1](https://user-images.githubusercontent.com/32939619/49546010-45dde200-f8ad-11e8-93ee-a151f49ed688.jpeg)
-4. We will also be able to see a heat map which shows the number of checkins made for each timing in the whole day, which would help us answer the most busy period for the restaurants.
-5. Our final solution will look something like this and will be interactive for users to show the results.
 

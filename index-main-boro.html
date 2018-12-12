@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="starter-template.css" rel="stylesheet">
+    <script src="//d3js.org/d3.v4.min.js"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <script src="symbol_map_borough.js"></script>
+    <script src="treemap.js"></script>
+    <script src="suggestion.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Times+New+Roman">
+    <style type="text/css">
+        @import url(//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.css);
+        .buttons-flex {
+             display: -webkit-flex;
+             display: flex;
+             -webkit-justify-content: space-between;
+             justify-content: space-between;
+         }
+    </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+          <div class="navbar-header">
+              <a class="navbar-brand" href="#" style="margin-left:420px;">Restraunt Recommendation</a>
+              <!-- <div><button onclick="window.location.href='index-main-boro.html'" style="vertical-align:top;margin-left:1150px; margin-top:-40px">Next</button></div> -->
+              <div style="margin-top:50px;"><p style="color:white; margin-left:-50px; ">This shows the average rating of NYC restaraunts in 5 boroughs. Brooklyn has the highest avergae rate restaurants among 5 boroughs.</p></div>
+          </div>
+      </div>
+  </nav>
+  <div></div>
+
+  <div class="buttons-flex" style="margin-top: 30px">
+  <button onclick="window.location.href='index_manhattan.html'">Manhattan</button>
+  <button onclick="window.location.href='index_brooklyn.html'">Brooklyn</button>
+  <button onclick="window.location.href='index.html'">NYC</button>
+  <button onclick="window.location.href='index_queens.html'">Queens</button>
+  <button onclick="window.location.href='index_staten.html'">Staten</button>
+  <button onclick="window.location.href='index_bronx.html'">Bronx</button>
+  </div>
+    <div id="map"></div>
+
+<script type="text/javascript">
+    var Vis = {};
+    Vis.data = new Array();
+    Vis.tree = [];
+    var json_file = "data/borough.json";
+    width_map = window.innerWidth;
+    height_map = window.innerHeight + 155;
+    width_histogram = 250 / 1060 * width_map;
+    height_tree = 200 / 700 * height_map;
+    height_histogram = 130 / 700 * height_map;
+    between_width = 120 / 1060 * width_map;
+    width_tree = 600 / 1060 * width_map;
+
+    d3.select("#map")
+        .style("width", +(width_map) + "px")
+        .style("height", +(height_map-210) + "px")
+        .style("left", "0px");
+
+    var svg_reivew = d3.select("#bottompanel").append("svg").attr("class", "panel_svg")
+        .attr("width", width_histogram + width_tree + between_width)
+        .attr("height", height_tree);
+
+    var svg_suggestion = d3.select("#suggestionpanel")
+
+    var color = d3.scaleOrdinal()
+        // .domain(["1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5"])
+        // .range([ "#fd8d3c", "#fc4e2a", "#e31a1c", "#bd0026", "#800026"]);
+        .domain(["1","2","3","4","5"])
+        .range([ "#fd8d3c", "#fc4e2a", "#e31a1c", "#bd0026", "#800026"]);
+        // .range([ "#800026", "#bd0026", "#e31a1c", "#fc4e2a", "#fd8d3c"]);
+
+    var map = new L.Map("map", {center: [40.712824, -73.997330], zoom: 11})
+        .addLayer(new L.TileLayer('http://{s}.sm.mapstack.stamen.com/(toner-lite,$fff[difference],$fff[@23],$fff[hsl-saturation@20])/{z}/{x}/{y}.png')
+        );
+
+    map._initPathRoot()
+    var svg = d3.select("#map").select("svg").attr("class", "map_svg")
+    g = svg.append("g");
+    suggestion_group = svg_suggestion.append("g");
+    var sgroup = svg_reivew.append("g")
+        .attr("transform", "translate(" + (width_tree + between_width) + "," + (height_tree - height_histogram - 20) + ")")
+    var sg = svg_reivew.append("g")
+        .attr("transform", "translate(" + 0 + ", 5)")
+    var treemap = d3.chart.treemap()
+    var symbol_map = d3.chart.symbol_map()
+    d3.queue()
+        .defer(d3.json, "treemap_pre_date.json")
+        .defer(d3.json, json_file)
+        .await(ready);
+    function ready(error, treemap_pre_data, business_with_checkin) {
+        Vis.data = business_with_checkin;
+        symbol_map.data(Vis.data)
+        symbol_map(g, map)
+    }
+</script>
+</body>
+</html>

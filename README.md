@@ -1,14 +1,16 @@
-##                                                         Restaurant Analyzer and Recommender
-                                                             By Anshul Sharma, Archit Goyal & Avaiyang Garg
+##Restaurant Analyzer and Recommender -- By Anshul Sharma, Archit Goyal & Avaiyang Garg
+                                                             
 ## Project goal
 Our project goal is to analyze Yelp data and visualize the data using map views and other graphs to answer various questions to determine the best restaurant in the proximity with a type of cuisine which the user wants to eat. Users can locate their location and choose the type of cuisine they want and filter them based on their ratings. This will help them eat their favorite cuisine in the proximity at a place which has good ratings and reviews in the comments. We have tried to make this an interactive webpage for the user so that they can add filters and choose a place to eat with best of their needs.
 
 ## Main objectives:
 
-Show correlation between ratings, location, cuisine types.
-Provide a high-level view of restaurants for the user to see the best option for them. 
-Show interactive relation between cuisines, location, and restaurant ratings.
-A user will be able to see the most rated restaurant in the location on basis of map zoom in and zoom out.
+Build interactive application to answer questions about restaurants in NYC
+Show which cuisines are most common on different boroughs.
+Show how cuisine preferences change according to borough in NYC.
+Show where restaurants cluster more in NYC.
+Show most high rated restaurants in five boroughs and within boroughs too.
+
 
 ## Data Set
 
@@ -28,46 +30,36 @@ User.json - user_id, user_count, reviews.
 
 ## Analytical Questions and Proxy Tasks
 	
-1. Which are the best restaurants available in the proximity?
+1. Where are the restaurants clustered in New York City Area?
 Proxy Tasks: 
-What is “Best” signifying in this task? ”Best” can be defined more specifically in terms of cost or based on ratings by the customers. 
-Proxy Value: 
-This can be calculated using the business.json file and in that, we will be using stars and review_count.
-How is “Proximity” defined for suggesting the restaurants? “Proximity” is a broad term which needs to be narrowed down based on the boroughs, City, Area, Streets, and Avenues.
-Proxy Values: 
-This can be calculated using the business.json file and in that, we will be 
-using longitude, latitude, and postal code.
+How is area divided in New York City? Area in New york city can be divided among the boroughs or the zip codes.
+Proxy Values:
+Lattitude, Longitude and city: From these three we can find the borough they belong to and where on map we can plot and identify them.
 
-
-2. Which are the top 5-star rating restaurants in the area? 
+2. Which Borough in New York City has top average rated restaurants? 
 Proxy Tasks: 
 What is the significance of “top”? Listing the restaurant with the most number of 5 stars because there may be restaurants with a single user review but a 5-star rating.
 Proxy Values: 
 We will be using the Review.json file, in this, we will be using stars, and in the business.json file, we will use stars and review_count.
 
-
-3. How many different cuisines does the person have as an option to eat nearby?
+3. Which cuisine is most common in different boroughs of New York City?
 Proxy Tasks:
 Based on the current location, there may be many different types of cuisines which the person can have as options to eat. They can select the nearest one and eat there.
 Proxy Values: 
 business.json file provide us with the categories which will help us to determine the different cuisines and then the latitude, longitude, and postal code will provide the location of the restaurant.
 
+4. Which are the top rated restaurants in different boroughs of New York City?
+	Proxy Tasks:
+What is the significance of “top”? Listing the restaurant with the most number of 5 stars because there may be restaurants with a single user review but a 5-star rating.
+Proxy Values: 
+We will be using the Review.json file, in this, we will be using stars, and in the business.json file, we will use stars and review_count.
 
-4. Which restaurants open early in the morning?
-Proxy Task: 
-Early is not defined here, early is a relative term and depends on person to person, since it can 9:00 am also, it can be 7:00 am also. So we need to properly define the term early.
-Proxy Value: 
-It can be defined by using the checkin.json file, where the timing of the restaurant is defined and that will help us to classify the restaurants opening up in the morning at the earliest.
-
-
-5. Which good restaurants have outdoor seating facility?
-Proxy Task: 
-“Good” means that the restaurant which have rating 4 and above.
-Proxy Value: 
-Stars attribute in the reviews.json file will help us filter if the restaurant is good or not based on if its rating is less than or greater than 4.
-Outdoor Seating facility allows the restaurant to let the customers sit outside.
-Proxy Value: 
-There is an attribute outdoor_seating from Business.json which explicitly says if there is outdoor seating facility by the restaurant.
+5. How cuisine preference change from overall New York to different boroughs?
+	Proxy Task:
+What does change mean here? Change means how the count of restaurants of different cuisines change from whole new york city to individual boroughs.
+Proxy Value: Count of Restaurants for different cuisines
+What is preference?
+Proxy Value: Preference is determined by the highest count of restaurants for the cuisine.
 
 ## Story Design
 ## Data Analysis

@@ -1,4 +1,4 @@
-##Restaurant Analyzer and Recommender -- By Anshul Sharma, Archit Goyal & Avaiyang Garg
+## Restaurant Analyzer and Recommender -- By Anshul Sharma, Archit Goyal & Avaiyang Garg
 
 Project Proposal Link: https://github.com/NYU-VIS-FALL2018/storytelling-group-5-offline
 

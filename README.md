@@ -57,13 +57,13 @@ Proxy Values:
 business.json file provide us with the categories which will help us to determine the different cuisines and then the latitude, longitude, and postal code will provide the location of the restaurant.
 
 4. Which are the top rated restaurants in different boroughs of New York City?
-	Proxy Tasks:
+Proxy Tasks:
 What is the significance of “top”? Listing the restaurant with the most number of 5 stars because there may be restaurants with a single user review but a 5-star rating.
 Proxy Values: 
 We will be using the Review.json file, in this, we will be using stars, and in the business.json file, we will use stars and review_count.
 
 5. How cuisine preference change from overall New York to different boroughs?
-	Proxy Task:
+Proxy Task:
 What does change mean here? Change means how the count of restaurants of different cuisines change from whole new york city to individual boroughs.
 Proxy Value: Count of Restaurants for different cuisines
 What is preference?
@@ -71,17 +71,47 @@ Proxy Value: Preference is determined by the highest count of restaurants for th
 
 ## Story Design
 ## Data Analysis
+Data Analysis
 The answer to the above-mentioned questions are the following:
 
-1. This is the overall map showing all the restaurants based on the latitude and longitude plotted on the map. This map shows the number of restaurants when the map is focussed on a particular region.
+1. Restaurants in New York City.
 
-2.The above map shows the top 10 restaurants based on their number of review counts. 
 
-3. The above is a treemap, which represents the categories of food items based on the count of star ratings.
 
-4. The above graph shows the restaurants which open in the morning by 9:00 am
 
-5. The above graph shows the restaurants which have outdoor sitting or not. If they have outdoor sitting then it is represented by +1, if they don’t have outdoor sitting then it is represented by -1.
+This is the overall map of New York City showing all the restaurants based on the latitude and longitude plotted on the map. The color range is from yellow to red for restaurants on the basis of their ratings. Red being 5 rating and yellow being lowest rated. For the image we analysed that among the five boroughs, manhattan has the most number of restaurants.
+
+
+This map shows the number of restaurants when the map is focussed on a particular region and also showing details of the selected restaurant.
+
+
+2. Which Borough have the top average rated restaurant in New York City?
+
+The above map shows that Brooklyn has the highest average of restaurants in New York City.
+
+The Average rating Goes by Brooklyn -> Queens -> Manhattan -> Staten Island -> Bronx.
+
+
+
+
+3. Most common cuisine in different boroughs of New York City.
+
+
+
+This shows the restaurants in Manhattan area of New York City and below is the tree map, which shows which cuisine has the highest number of restaurants in the area.
+
+
+4. Top rated restaurants in different Boroughs of New York City.
+
+
+For each borough, we can see the color of restaurants in the brough, which signifies their ratings and also we can change the ratings of the restaurants to filter the values.
+
+
+5. Change in cuisine preference from whole New York City to different boroughs.
+
+
+
+The above two graphs show that which cuisine was most common in the New York City area and which cuisine is most common in the  given borough.
 
 ## Storyboard
 There have been many mobile applications which help users in finding the restaurants of their choice, but there aren’t in web applications. Web applications which we are creating will provide a much clear approach and will allow the user to filter appropriately and show the results on the map, thus the user will have a better user experience. Now, the question comes is that the mobile application is more useful to the user, but the screen size restricts the user from doing all the visualization and applies all the filters at once, hence the web application will be more powerful for the visualization purpose. The user along with filtering is able to simultaneously look the result on the map and if the user is not able to get some good results, he can just drag the slider to change the filter value and then get the desired results. Based on our experience, we decided that few key factors are very important while designing our story, like the average rating of the business, the location, price, number of ratings of the user, stars, review counts. These key factor will help us in better designing our story and also help in a better user experience. 

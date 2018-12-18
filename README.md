@@ -1,5 +1,5 @@
-## Restaurant Analyzer and Recommender
-
+##                                                         Restaurant Analyzer and Recommender
+                                                             By Anshul Sharma, Archit Goyal & Avaiyang Garg
 ## Project goal
 Our project goal is to analyze Yelp data and visualize the data using map views and other graphs to answer various questions to determine the best restaurant in the proximity with a type of cuisine which the user wants to eat. Users can locate their location and choose the type of cuisine they want and filter them based on their ratings. This will help them eat their favorite cuisine in the proximity at a place which has good ratings and reviews in the comments. We have tried to make this an interactive webpage for the user so that they can add filters and choose a place to eat with best of their needs.
 

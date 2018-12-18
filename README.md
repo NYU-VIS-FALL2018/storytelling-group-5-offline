@@ -77,7 +77,7 @@ The answer to the above-mentioned questions are the following:
 1. Restaurants in New York City.
 
 
-
+![](https://github.com/NYU-VIS-FALL2018/storytelling-group-5-offline/blob/master/img/1.png)
 
 This is the overall map of New York City showing all the restaurants based on the latitude and longitude plotted on the map. The color range is from yellow to red for restaurants on the basis of their ratings. Red being 5 rating and yellow being lowest rated. For the image we analysed that among the five boroughs, manhattan has the most number of restaurants.
 

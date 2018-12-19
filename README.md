@@ -25,10 +25,14 @@ Show most high rated restaurants in five boroughs and within boroughs too.
 URL for the DataSet: https://www.yelp.com/dataset/challenge
 
 Dataset files used:
+
 Business.json
+
 Review.json 
+
 Checkin.json
-user.json
+
+User.json
 
 Attributes used from the data set are :
 
@@ -43,15 +47,23 @@ User.json - user_id, user_count, reviews.
 ## Analytical Questions and Proxy Tasks
 	
 1. Where are the restaurants clustered in New York City Area?
-Proxy Tasks: 
+
+# Proxy Tasks: 
+
 How is area divided in New York City? Area in New york city can be divided among the boroughs or the zip codes.
-Proxy Values:
+
+# Proxy Values:
+
 Lattitude, Longitude and city: From these three we can find the borough they belong to and where on map we can plot and identify them.
 
 2. Which Borough in New York City has top average rated restaurants? 
-Proxy Tasks: 
+
+# Proxy Tasks: 
+
 What is the significance of “top”? Listing the restaurant with the most number of 5 stars because there may be restaurants with a single user review but a 5-star rating.
-Proxy Values: 
+
+# Proxy Values: 
+
 We will be using the Review.json file, in this, we will be using stars, and in the business.json file, we will use stars and review_count.
 
 3. Which cuisine is most common in different boroughs of New York City?

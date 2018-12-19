@@ -20,55 +20,34 @@ d3.chart.histogram = function() {
   function chart(container) {
     g = container;
 
-    // g.append("g")
-    // .classed("xaxis", true)
-
-    // g.append("g")
-    // .classed("yaxis", true)
-
     create();
   }
   chart.update = update;
     
   function create() {
 
-      //isFirst = true;
-
-
       create_rect()
-
-      //Define X axis
       xAxis = d3.axisBottom()
           .scale(x)
           .ticks(xticks)
           .tickSize(4,0);
 
-      //Create X axis
+      
       g.append("g")
           .attr("class", "xaxis")
           .attr("transform", "translate(" + (left_label + left_axis) + ", "+(height+1.5)+" )")
           .call(xAxis);
 
 
-      //Define y axis
+      
       yAxis = d3.axisLeft()
           .scale(y)
           .ticks(yticks)
           .tickSize(4,0);
-
-      // //Create y axis
-      // g.append("g")
-      //     .attr("class", "yaxis")
-      //     .attr("transform", "translate(" + (left_label + left_axis) + ",0)")
-      //     .call(yAxis);
-
-      //Create y axis
       g.append("g")
           .attr("class", "yaxis")
           .attr("transform", "translate(" + (left_label + left_axis) + ",0)")
           .call(yAxis);
-
-      //Add titles to the axes
       g.append("text")
           .attr("text-anchor", "middle")
           .attr("transform", "translate("+(left_label-15)+", " + height/2 + ")rotate(-90)")
@@ -91,31 +70,7 @@ d3.chart.histogram = function() {
       .style('fill', "#d6d6c2");
 
 
-    // circles
-    // .transition()
-    // .attr({
-    //       cx: function(d,i) { return createdScale(d.created) },
-    //       cy: function(d,i) { return yScale(d.score) },
-    //       r: function(d) { return commentScale(d.num_comments)},
-    //       title: function(d) { return "Number of comments for " + d.id + ": " + d.num_comments}
-    // })
-    //   .style("fill", function(d) {  return d.color })
-    //   .style("opacity", 0.75)
-
-    //circles.exit().remove()
-    //console.log(bar);
-    // bar.on("mouseover", function(d) {
-    //   d3.select(this).style("stroke", "#f46d43")
-    //   //dispatch.hover([d])
-    //   dispatch.call("hover", this, [d])
-    // })
-
-
-
-    // bar.on("mouseout", function(d) {
-    //   d3.select(this).style("stroke", "")
-    //   dispatch.call("hover",this,[])
-    // })
+   
   }
 
   function create_rect(){
@@ -123,7 +78,6 @@ d3.chart.histogram = function() {
        data.forEach(function(d){ review.set(d.business_id ,d.review_count); });
     
     if(data.length==0){ 
-    //console.log("here");  
       return;
     }
 
@@ -160,9 +114,6 @@ d3.chart.histogram = function() {
     bar.on("click",function (d) {
         //console.log(d);
         var dd=d.x0;
-
-        //if(){
-          //if click on the same bar, remove effect
 
         //}else{
           g.selectAll("rect")
@@ -230,16 +181,6 @@ d3.chart.histogram = function() {
       .domain([0, d3.max(bins, function(d) { return d.length; })])
       .range([height, 0]);
 
-      // //console.log(isFirst);
-
-      // if (isFirst == true) {
-      //     g.select(".yaxis")
-      //         .remove();
-      //     isFirst = false;
-      // }
-
-      // if (d3.max(bins, function(d) { return d.length; }) < yticks) {
-
       if (d3.max(bins, function(d) { return d.length; }) < yticks) {
 
           yAxis.scale(y).ticks(d3.max(bins, function(d) { return d.length; })).tickFormat(d3.format("d"));
@@ -290,22 +231,7 @@ d3.chart.histogram = function() {
         .attr("width", function(d){return (x(bins[0].x1 - bins[0].x0)*0.9);})
         .attr("height", function(d) { if(d.length==0){return 0;} else{ return height - y(d.length)+2; } })
         .attr("fill", "#D999A2")
-          // .on("click",function (d) {
-          //     d3.select(this).style("stroke", "#f46d43");
-          //     //dispatch.hover([d])
-          //     dispatch.call("click", this, [d]);
-          // });
-      
-    // bar.on("mouseover", function(d) {
-    //   d3.select(this).style("stroke", "black")
-    //   //dispatch.hover([d])
-    //   dispatch.call("hover", this, [d])
-    // })
-
-    // bar.on("mouseout", function(d) {
-    //   d3.select(this).style("stroke", "")
-    //   dispatch.call("hover",this,[])
-    // })
+         
     bar.on("click",function (d) {
         //console.log(d);
         var dd=d.x0;
@@ -346,25 +272,7 @@ d3.chart.histogram = function() {
 
   //combination getter and setter for the data attribute of the global chart variable
   chart.data = function(value) {
-    // if(!arguments.length) return data;
-    // var data_1 =[];
-    // var data_2 =[];
-    // var price = treemap.pricestate();
-    //   value.forEach(function(d){
-    //       if(price[d.price-1] != 0){
-    //           data_1.push(d);
-    //       }
-    //   });
-
-    //   data_1.forEach(function(d){
-    //       if(d.stars>=treemap.starlevel()){
-    //           data_2.push(d);
-    //       }
-    //   });
-    // data = data_2;
-    // data_1 = [];
-    // data_2 = [];
-    // return chart
+    
         if(!arguments.length) return data;
     var data_1 = [];
     var data_2 = [];
@@ -442,9 +350,7 @@ d3.rebind = function(target, source) {
   return target;
 };
 
-// Method is assumed to be a standard D3 getter-setter:
-// If passed with no arguments, gets the value.
-// If passed with arguments, sets the value and returns the target.
+
 function d3_rebind(target, source, method) {
   return function() {
     var value = method.apply(source, arguments);

@@ -48,14 +48,11 @@ d3.chart.stacked = function() {
     for(i in data){
       for(j in data_1){
         if(data[i].cat==data_1[j].cat){
-          //console.log(data_1[j]);
-          //console.log(data[i].cat);
           data_1[j][data[i].stars]=data_1[j][data[i].stars]+1;
           data_1[j]["total"]=data_1[j]["total"]+1;
         }
       }
     }
-    //console.log(data_1);
 
     data_1.sort(function(a, b) { return b.total - a.total; });
     
@@ -66,10 +63,6 @@ d3.chart.stacked = function() {
 
     y = d3.scaleLinear()
         .rangeRound([height, 0]);
-
-    // var z = d3.scaleOrdinal()
-    //         .domain(categories)
-    //         .range(["#ffffcc", "#ffeda0" , "#fed976", "#feb24c", "#fd8d3c", "#fc4e2a" ]);
     var z= d3.scaleOrdinal()
       .domain(stars)
       .range(["#ffffcc", "#ffeda0" , "#fed976", "#feb24c", "#fd8d3c", "#fc4e2a","#e31a1c", "#bd0026", "#800026" ]);
@@ -80,9 +73,6 @@ d3.chart.stacked = function() {
     var stack = d3.stack().keys(stars);
 
     var data_2=stack(data_1);
-
-    //console.log(data_2);
-
  
   var serie= g.selectAll(".serie")
               .data(data_2)
@@ -187,7 +177,7 @@ d3.chart.stacked = function() {
   }
 
   function update() {
-    //console.log(data);
+
 
     
 
@@ -229,10 +219,6 @@ d3.chart.stacked = function() {
 
     y = d3.scaleLinear()
         .rangeRound([height, 0]);
-
-    // var z = d3.scaleOrdinal()
-    //         .domain(categories)
-    //         .range(["#ffffcc", "#ffeda0" , "#fed976", "#feb24c", "#fd8d3c", "#fc4e2a" ]);
     var z= d3.scaleOrdinal()
       .domain(stars)
       .range(["#ffffcc", "#ffeda0" , "#fed976", "#feb24c", "#fd8d3c", "#fc4e2a","#e31a1c", "#bd0026", "#800026" ]);
@@ -273,11 +259,7 @@ d3.chart.stacked = function() {
  
   var serie= g.selectAll(".serie")
               .data(data_2)
-              //.enter()
-      //         .append("g")
-      //         .attr("class", "serie")
-      //         .attr("fill", function(d) { return z(d.key); })
-
+       
        .selectAll("rect")
        .data(function(d) { return d; })
       // .enter()
@@ -323,12 +305,6 @@ d3.chart.stacked = function() {
 
     //console.log(rect);
     if(data.length>0){
-
-      // serie.filter(function(d) { return (d.key==data[0].stars )})
-      //   .style("stroke", "black")
-      //   .style("stroke-width", 3)
-
-      // console.log(data[0].cat);
 
       rect.filter(function(d) { var parent=d3.select(this.parentNode); return (d.data.cat==data[0].cat && parent.data()[0].key==data[0].stars )})
         .style("stroke", "#a6d96a")

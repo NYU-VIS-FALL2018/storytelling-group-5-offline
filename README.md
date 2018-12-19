@@ -31,9 +31,13 @@ Checkin.json
 user.json
 
 Attributes used from the data set are :
+
 Business.json - business_id, name, city, address, postal code, longitude, latitude, stars, review_count, category, outDoorSitting
+
 Review.json - review_id, business_id, stars 
+
 Checkin.json - business_id, time.
+
 User.json - user_id, user_count, reviews.
 
 ## Analytical Questions and Proxy Tasks

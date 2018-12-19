@@ -57,25 +57,12 @@ d3.chart.suggestion = function(){
            i++;
        })
 
-        // data.sort(function (a,b) {
-        //     return b.stars - a.stars;
-        // })
+        
 
         data.forEach(function (d) {
             if(d.review_count < 100 && d.stars == 5){ data_2.push(d);}
             // j++;
         })
-
-
-
-
-        // var data_1 =[data[0],data[1],data[2],data[3],data[4]];
-
-       // data_1.forEach(function (d) {
-       //     console.log(d.review_count);
-       // })
-       //
-       // console.log(11112222,data_2);
 
       top5g =  g.append("g")
             .attr("class","top5")
@@ -141,60 +128,7 @@ d3.chart.suggestion = function(){
 
 
 
-        //console.log(data["attributes"]["Price Range"])
-        //
-        // g.select(".name").remove();
-        // g.append("text")
-        //     .attr("class", "name")
-        //     .text(data["name"])
-        //     .attr("x", right_panel_width / 2)
-        //     .attr("y", 20)
-        //     .style("font-family", title_font_family)
-        //     .style("font-size", title_font_size)
-        //     .attr("text-anchor", "middle");
-        //
-        // g.select(".stars").remove();
-        // g.append("text")
-        //     .attr("class", "stars")
-        //     .text("Stars: " + rate_star[data["stars"]])
-        //     .attr("x", right_panel_width / 2)
-        //     .attr("y", 40)
-        //     .style("font-size", "10px")
-        //     .attr("text-anchor", "middle");
-        //
-        // g.select(".price").remove();
-        // g.append("text")
-        //     .attr("class", "price")
-        //     .text("Price:" + price_range[data["attributes"]["Price Range"]])
-        //     .attr("x", right_panel_width / 2)
-        //     .attr("y", 60)
-        //     .attr("text-anchor", "middle");
-        //
-        // g.select(".reviews").remove();
-        // g.append("text")
-        //     .attr("class", "reviews")
-        //     .text("Reviews: " + data["review_count"] )
-        //     .attr("x", right_panel_width / 2)
-        //     .attr("y", 80)
-        //     .style("font-size", "10px")
-        //     .attr("text-anchor", "middle");
-        //
-        // g.select(".categories").remove();
-        //
-        // g.append("text")
-        //     .attr("class", "categories")
-        //     .text(data["categories"], function () {
-        //         return d;
-        //     })
-        //     .attr("x", right_panel_width / 2)
-        //     .attr("y", 120)
-        //     .style("font-size", "10px")
-        //     .attr("text-anchor", "middle");
-        //
-        //
-        // rg.remove();
-        // rg = d3.select("#rightpanel .panel_svg").append("g").attr("id", "ratechart");
-        // review()
+        
 
     }
 
@@ -261,9 +195,6 @@ d3.rebind = function(target, source) {
     return target;
 };
 
-// Method is assumed to be a standard D3 getter-setter:
-// If passed with no arguments, gets the value.
-// If passed with arguments, sets the value and returns the target.
 function d3_rebind(target, source, method) {
     return function() {
         var value = method.apply(source, arguments);

@@ -109,20 +109,6 @@ var svg = d3.select("body").append("svg")
       .style("width", width + margin.left + margin.right + "px")
       .style("height", height + margin.bottom + margin.top + "px");
 
-// var grandparent = svg.append("g")
-//       .attr("class", "grandparent");
-  
-//   grandparent.append("rect")
-//       .attr("fill", "grey")
-//       .attr("y", -margin.top)
-//       .attr("width", width)
-//       .attr("height", margin.top);
-  
-//   grandparent.append("text")
-//       .attr("x", 6)
-//       .attr("y", 6 - margin.top)
-//       .attr("dy", ".75em");
-
 var g1 = svg.insert("g", ".grandparent")
         .attr("class", "depth")
 
@@ -169,15 +155,6 @@ var handle = slider.insert("circle", ".track-overlay")
     .attr("class", "handle")
     .attr("r", 9);
 
-// slider.transition() // Gratuitous intro!
-//     .duration(750)
-//     .tween("hue", function() {
-//       var i = d3.interpolate(0, 3);
-//       return function(t) { hue(i(t)); };
-//     });
-
-//slider 2 for price
-
 
 function hue(h) {
   handle.attr("cx", x(h));
@@ -196,9 +173,6 @@ function ready(error, treemap_pre_date, business_for_hw5){
     if (error) throw error;
     var count=[0,0];
     data_1=business_for_hw5;
-    
-    // grandparent.select("text")
-    //           .text("Total Number of Businesses: "+ business_for_hw5.length);
 
     console.log(business_for_hw5);
 
@@ -283,13 +257,6 @@ function dragging(){
 }
 
 function main(root){
-  //console.log(root);
-
-    // grandparent
-    //     .datum(root.parent)
-    //     //.on("click", transition)
-    //   .select("text")
-    //     //.text(name(d));
 
 
   var node = g1
@@ -303,11 +270,7 @@ function main(root){
       .attr("y", function(d) { return d.y0; })
       .attr("width", function(d) { return d.x1 - d.x0 ; })
       .attr("height", function(d) { return d.y1 - d.y0 ; })
-      // .style("fill", "#b2ff66")
-      // .style("left", function(d) { return d.x0 + "px"; })
-      // .style("top", function(d) { return d.y0 + "px"; })
-      // .style("width", function(d) { return d.x1 - d.x0 + "px"; })
-      // .style("height", function(d) { return d.y1 - d.y0 + "px"; });
+  
 
   g1.selectAll(".node_text")
       .data(root.leaves()).enter()
@@ -320,14 +283,9 @@ function main(root){
       //.text("here")
       .text(function(d) { console.log(d);
         if(d.data.key!="undefined") return d.parent.data.key + "\n" + d.data.key+"\n"+d.value;   else return d.parent.data.key+"\n"+d.value;} )
-
-  //node.on("click", transition);
 }
 
 function update(d){
-  
-  //treemap(d);
-  //console.log(d);
     var node = g1.selectAll(".node")
     .data(d.leaves())
 
@@ -340,11 +298,6 @@ function update(d){
     .attr("y", function(d) { return d.y0; })
     .attr("width", function(d) { return d.x1 - d.x0 ; })
     .attr("height", function(d) { return d.y1 - d.y0 ; })
-      // .style("fill", function(d) { return color(d.data.key); })
-      // .style("left", function(d) { return d.x0 + "px"; })
-      // .style("top", function(d) { return d.y0 + "px"; })
-      // .style("width", function(d) { return d.x1 - d.x0 + "px"; })
-      // .style("height", function(d) { return d.y1 - d.y0 + "px"; });
 
 
     node.enter()
@@ -356,11 +309,7 @@ function update(d){
     .attr("y", function(d) { return d.y0; })
     .attr("width", function(d) { return d.x1 - d.x0 ; })
     .attr("height", function(d) { return d.y1 - d.y0 ; })
-      // .style("fill", function(d) { return color(d.data.key); })
-      // .style("left", function(d) { return d.x0 + "px"; })
-      // .style("top", function(d) { return d.y0 + "px"; })
-      // .style("width", function(d) { return d.x1 - d.x0 + "px"; })
-      // .style("height", function(d) { return d.y1 - d.y0 + "px"; });
+      
 
 
     node.exit().remove();

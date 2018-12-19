@@ -48,7 +48,7 @@ User.json - user_id, user_count, reviews.
 	
 1. Where are the restaurants clustered in New York City Area?
 
-# Proxy Tasks: 
+### Proxy Tasks: 
 
 How is area divided in New York City? Area in New york city can be divided among the boroughs or the zip codes.
 
@@ -58,7 +58,7 @@ Lattitude, Longitude and city: From these three we can find the borough they bel
 
 2. Which Borough in New York City has top average rated restaurants? 
 
-# Proxy Tasks: 
+### Proxy Tasks: 
 
 What is the significance of “top”? Listing the restaurant with the most number of 5 stars because there may be restaurants with a single user review but a 5-star rating.
 

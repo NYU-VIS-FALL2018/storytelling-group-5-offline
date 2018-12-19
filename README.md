@@ -1,7 +1,7 @@
 ## Restaurant Analyzer and Recommender
 ### By Anshul Sharma, Archit Goyal & Avaiyang Garg
 
-Project Proposal Link: https://github.com/NYU-VIS-FALL2018/storytelling-group-5-offline
+Project Proposal Link: https://github.com/NYU-VIS-FALL2018/storytelling-group-5-offline/blob/master/Project%20Proposal/IV%20Project%20Proposal.pdf
 
 Demo Link: https://nyu-vis-fall2018.github.io/storytelling-group-5-offline/
 

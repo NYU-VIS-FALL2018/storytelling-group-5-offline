@@ -81,83 +81,19 @@ d3.chart.symbol_map = function() {
       }
 
     })
-      // console.log(map);
-      //
+      
     map.on("viewreset", reset);
     reset();
 
   }
 
-
-  // function update() {
-
-  //    var symbols = g.selectAll("circle")
-  //     .data(data, key);
-
-  //     symbols.transition()
-  //     .attr("r", "3px")
-  //     .attr("fill", function(d){ return color(d.stars);})
-  //     .style("opacity", 0.6)
-  //     .attr("class", "symbol")
-
-
-
-  //     symbols.enter()
-  //     .append("circle")
-  //     //.transition()
-  //     .attr("r", "3px")
-  //     .attr("fill", function(d){ return color(d.stars);})
-  //     .style("opacity", 0.6)
-  //     .attr("class", "symbol")
-
-  //     symbols.exit()
-  //      .remove()
-
-
-  //   .on("mouseover", function(d) {
-  //     //console.log("hahhh");
-  //     d3.select(this).style("stroke", "black")
-  //     dispatch.call("hover",this,[d])
-  //   })
-
-  //   .on("mouseout", function(d) {
-  //     d3.select(this).style("stroke", "")
-  //     dispatch.call("hover",this,[])
-  //   })
-
-  //   map.on("viewreset", reset);
-  //   reset();
-
-  //}
-
   function reset(){
-    //var map=container;
-   // console.log(map.getCenter());
-      //    map.on("click",function(d){
-      //     dispatch.call("click",this,[]);
-
-      //     d3.select(".isOnClick").attr("class","symbols").style("stroke", "").attr("fill", function(d){return color(d.stars);});
-
-      //     //d3.event.stopPropagation();
-      // })
+    
 
     var x = d3.scaleOrdinal()
       .domain(["0", "1", "2", "3", "4", "5", "6", "7", "8","9", "10", "11", "12", "13", "14", "15", "16", "17","18"])
       .range(["0", "0", "0", "0", "0", "0", "0", "0", "0","1", "1", "2", "3", "4", "6", "8", "10", "15","20"]);
 
-      // var onclick=d3.select(".isOnClick");
-      // console.log(data);
-
-
-      // if(onclick.data().length==0){
-
-      // }else{
-      // //console.log(onclick.data()[0].business_id);
-      // data.forEach(function(d){ if(d.business_id==onclick.data()[0].business_id){ data.splice(data.indexOf(d), 1); return;}})
-
-      // }
-      // console.log(onclick.data()[0]);
-      // console.log(data);
 
       symbols=g.selectAll("circle")
               .data(data, function(d){return d.business_id;})
@@ -181,9 +117,7 @@ d3.chart.symbol_map = function() {
       symbols.select(".isOnClick").attr("fill", "#85e085");
 
 
-      // symbols.select("class",".isOnClick")
-      //   .style("stroke",function(){console.log(d);}).style("stroke-width", 5).attr("fill","#85e085"); cannot do this bc the circle and data correlation changes
-
+      
       symbols.enter().append("circle")
             .attr("r", x(map.getZoom()))
             .attr("fill", function(d){ return color(d.stars);})
@@ -234,20 +168,12 @@ d3.chart.symbol_map = function() {
       }
 
     })
-
-
-
-
       symbols.exit().remove();
-      //console.log(map.getZoom());
-
-      //dispatch.call("reset",this, data)
 
   }
 
 
   chart.highlight = function(data) {
-        //console.log(data);
         var symbols = g.selectAll("circle.symbol")
         .style("stroke", "")
         .style("stroke-width", "")
@@ -268,8 +194,6 @@ d3.chart.symbol_map = function() {
     var price = treemap.pricestate();
     var categories =treemap.catstate();
 
-     // console.log(1234,categories);
-
       value.forEach(function(d){
           if(price[d.price-1] != 0){
               data_1.push(d);
@@ -277,8 +201,7 @@ d3.chart.symbol_map = function() {
       });
       data_1.forEach(function(d) {
           if(d.stars>=treemap.starlevel()){
-              // console.log("d.star",d.stars);
-              // console.log("starlevel()",treemap.starlevel());
+      
             data_2.push(d)
           }
       });

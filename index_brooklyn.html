@@ -169,13 +169,16 @@
         .style("right", -review_panel_width + "px");
     var busgroup = d3.select("#rightpanel").append("div").attr("id", "business_info")
         .attr("position", "relative")
-        .style("width", "auto")
-        .style("height", "auto");
+        .style("width", "500px")
+        .style("height", "auto")
+        .style("float", "left");
+
     var svg_reivew = d3.select("#bottompanel").append("svg").attr("class", "panel_svg")
         .attr("width", width_histogram + width_tree + between_width)
         .attr("height", height_tree);
-    var svg_right = d3.select("#rightpanel").append("svg").attr("class", "panel_svg")
-        .attr("width", +right_panel_width - right_panel_padding * 2 + "px")
+
+    var svg_right = d3.select("#rightpanel").append("div").attr("class", "new").append("svg").attr("class", "panel_svg")
+        .attr("width", +right_panel_width - right_panel_padding * 15 + "px")
         .attr("height", +(right_panel_height - right_panel_padding * 2) * 2 / 3 + "px")
         .attr("position", "relative");
     var svg_suggestion = d3.select("#suggestionpanel").append("svg").attr("class", "svg_suggestion")
